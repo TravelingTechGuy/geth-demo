@@ -1,0 +1,30 @@
+# Go binaries and build output
+/bin/
+/dist/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+cover.out
+coverage.out
+
+# Go workspace / temp
+*.tmp
+*.log
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# IDE / editor
+.vscode/
+.idea/
+.DS_Store
+
+# Local blockchain / Docker persisted state
+data/
+tmp/
