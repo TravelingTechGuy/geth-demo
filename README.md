@@ -20,7 +20,8 @@ That should give you the last 50 lines from Geth log. Look for a line that reads
 ```bash
 Using developer account   address=0x71562b71999873DB5b286dF957af199Ec94617F7
 ```
-This is your developer account
+This is your **developer account** - keep it.
+
 ### Create 2 test accounts
 
 Create 2 new accounts. Leave the passwords empty (if you want to specify passwords, note them somewhere):
