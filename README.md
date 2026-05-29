@@ -20,7 +20,7 @@ That should give you the last 50 lines from Geth log. Look for a line that reads
 ```bash
 Using developer account   address=0x71562b71999873DB5b286dF957af199Ec94617F7
 ```
-This is your **developer account** - keep it.
+This is your **developer account** - we'll use this address to fund other accounts later.
 
 ### Create 2 test accounts
 
@@ -59,7 +59,7 @@ docker exec -it geth-local geth attach http://127.0.0.1:8545
 Check to see which accounts are available (one should be the dev account, and 2 are the new ones you just created):
 ```bash
 > eth.accounts
-["0x<DEV account?0>", "0x<Account 1>", "0x<Account2>"]
+["0x<DEV account>", "0x<Account 1>", "0x<Account2>"]
 ```
 We'll verify the dev account has funds:
 ```
