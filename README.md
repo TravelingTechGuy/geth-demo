@@ -40,12 +40,6 @@ go run ./cmd/decrypt_keystore/main.go -address 0xYOUR_ADDRESS -password 'your-pa
 
 By default, the utility reads from `./data/geth/keystore`.
 
-If the keystore password is an empty string, pass an empty shell argument:
-
-```bash
-go run decrypt_keystore.go -address 0xYOUR_ADDRESS -password ''
-```
-
 The utility prints the private key in hex without the `0x` prefix, so it can be copied directly into `.env` file. So create am `.env` file at the root of the project with the following contents:
 
 ```env
