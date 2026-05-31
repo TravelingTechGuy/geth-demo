@@ -10,6 +10,7 @@ import (
 
 	"github.com/ethereum/go-ethereum/accounts/keystore"
 	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/crypto"
 )
 
 func main() {
@@ -53,7 +54,7 @@ func main() {
 			continue
 		}
 
-		privHex := hex.EncodeToString(key.PrivateKey.D.FillBytes(make([]byte, 32)))
+		privHex := hex.EncodeToString(crypto.FromECDSA(key.PrivateKey))
 		fmt.Printf("Address: %s\n", key.Address.Hex())
 		fmt.Printf("Private key (hex, no 0x prefix): %s\n", privHex)
 		return
