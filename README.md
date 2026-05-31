@@ -4,7 +4,7 @@ This app test a docker Geth installation. It uses `dev` as the blockchain, and p
 
 ## Steps to run
 
-### Run the blockchain
+### 1. Run the blockchain
 
 Run this in your terminal:
 ```bash
@@ -22,14 +22,14 @@ Using developer account   address=0x71562b71999873DB5b286dF957af199Ec94617F7
 ```
 This is your **developer account** - we'll use this address to fund other accounts later.
 
-### Create 2 test accounts
+### 2. Create 2 test accounts
 
 Create 2 new accounts. Leave the passwords empty (if you want to specify passwords, note them somewhere):
 ```bash
 docker exec -it geth-local geth account new --datadir /root/.ethereum
 docker exec -it geth-local geth account new --datadir /root/.ethereum
 ```
-### Recover a private key from a local Geth keystore
+### 3. Recover a private keys from a local Geth keystore
 
 After creating local accounts with `geth account new`, you can recover the private key for an account you own by decrypting its local keystore file.
 
@@ -41,7 +41,11 @@ go run ./cmd/decrypt_keystore/main.go -address 0xYOUR_ADDRESS -password 'your-pa
 
 By default, the utility reads from `./data/geth/keystore`.
 
-The utility prints the private key in hex without the `0x` prefix, so it can be copied directly into `.env` file. So create am `.env` file at the root of the project with the following contents:
+The utility prints the private key in hex without the `0x` prefix, so it can be copied directly into `.env` file.
+
+### 4. Create the `env` file
+
+Create an `.env` file at the root of the project with the following contents:
 
 ```env
 GETH_RPC_URL=http://localhost:8545
@@ -50,7 +54,7 @@ PRIVATE_KEY_2=123456...
 ```
 Feel free to create more addresses, and add them to the `.env` file - just make sure you load them in `config.go`.
 
-### Fund the 2 accounts we created
+### 5. Fund the 2 accounts you created
 
 Get into the geth CLI:
 ```bash
@@ -80,12 +84,12 @@ That's a lot of ETH (see the e+77 part?). Now let's send 100 ETH to each one of 
 
 Exit the CLI by clickcing CTRL+D, and now we're ready to run our app!
 
-### Running the application
+### 6. Running the application
 
 1. `go run main.go` - run main app
 1. `go test -v` - run tests
 
-### Shutting down the blockchain
+## Shutting down the blockchain
 
 To shut down the blockchain, run `docker-compose down`. This will still preserve the `/data` directory, so we can reuse the same accounts next time.
 
